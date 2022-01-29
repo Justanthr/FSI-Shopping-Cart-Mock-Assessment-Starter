@@ -6,13 +6,22 @@ let totalCost = 15.00
 let cost = document.createElement('div')
 cost.setAttribute('id', 'cost')
 cost.setAttribute('style', 'display: none')
+body.append(cost)
 
 let costTotal = document.createElement('span')
 costTotal.setAttribute('id', 'total-cost')
 costTotal.textContent = `Total: ${totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
-
-body.append(cost)
 cost.append(costTotal)
+
+// let payBtn = createElement('button')
+// payBtn.setAttribute('class', 'pay-button')
+// payBtn.textContent = 'Pay Now'
+// cost.append(payBtn)
+
+// Pay button response
+// payBtn.addEventListener('click', function() {
+//     window.prompt('Sorry, we are unable to process your payment at this')
+// })
 
 //Change quantity dispayed
 function changeQuantity(displayQuantity) {
@@ -25,8 +34,8 @@ addQuantity = document.getElementById('quantity-up')
 addQuantity.addEventListener('click', function(){
     totalQuantity = totalQuantity + 1
     changeQuantity(`Quantity: ${totalQuantity}`)
-    totalCost += 15.00
-    costTotal.textContent = totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    totalCost += 15.00 //Changing total displayed
+    costTotal.textContent = `Total: ${totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
     
 })
 
@@ -35,8 +44,8 @@ quantityDown = document.getElementById('quantity-down')
 quantityDown.addEventListener('click', function(){
     if(totalQuantity > 1){
         totalQuantity = totalQuantity - 1
-        totalCost -= 15.00
-    costTotal.textContent = totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
+        totalCost -= 15.00 //Changing total displayed
+    costTotal.textContent = `Total: ${totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
     }
     changeQuantity(`Quantity: ${totalQuantity}`)
 })
