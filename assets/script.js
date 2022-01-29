@@ -11,7 +11,6 @@ addQuantity = document.getElementById('quantity-up')
 addQuantity.addEventListener('click', function(){
     totalQuantity = totalQuantity + 1
     changeQuantity(`Quantity: ${totalQuantity}`)
-    console.log(totalQuantity)
 })
 
 //Quantity down
@@ -21,5 +20,11 @@ quantityDown.addEventListener('click', function(){
         totalQuantity = totalQuantity - 1
     }
     changeQuantity(`Quantity: ${totalQuantity}`)
-    console.log(totalQuantity)
+})
+
+//Remove button
+let removeBtn = document.querySelector('.remove')
+removeBtn.addEventListener('click', function(){
+    totalQuantity = 1
+    changeQuantity(`Quantity: ${totalQuantity}`)
 })
