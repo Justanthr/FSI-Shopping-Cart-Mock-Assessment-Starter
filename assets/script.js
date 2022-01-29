@@ -1,6 +1,6 @@
 let body = document.querySelector('body')
 let totalQuantity = 1
-let totalCost = 15.55
+let totalCost = 15.00
 
 //Adding cost total to HTML
 let cost = document.createElement('div')
@@ -9,7 +9,7 @@ cost.setAttribute('style', 'display: none')
 
 let costTotal = document.createElement('span')
 costTotal.setAttribute('id', 'total-cost')
-costTotal.textContent = totalCost
+costTotal.textContent = `Total: ${totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"})}`;
 
 body.append(cost)
 cost.append(costTotal)
@@ -25,8 +25,9 @@ addQuantity = document.getElementById('quantity-up')
 addQuantity.addEventListener('click', function(){
     totalQuantity = totalQuantity + 1
     changeQuantity(`Quantity: ${totalQuantity}`)
-    totalCost += 15.55
-    costTotal.textContent = totalCost
+    totalCost += 15.00
+    costTotal.textContent = totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
+    
 })
 
 //Quantity down
@@ -34,8 +35,8 @@ quantityDown = document.getElementById('quantity-down')
 quantityDown.addEventListener('click', function(){
     if(totalQuantity > 1){
         totalQuantity = totalQuantity - 1
-        totalCost -= 15.55
-    costTotal.textContent = totalCost
+        totalCost -= 15.00
+    costTotal.textContent = totalCost.toLocaleString("en-US", {style:"currency", currency:"USD"});
     }
     changeQuantity(`Quantity: ${totalQuantity}`)
 })
